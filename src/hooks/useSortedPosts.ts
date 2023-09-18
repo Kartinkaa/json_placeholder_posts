@@ -1,10 +1,19 @@
-import { ref, computed } from 'vue'
+import { ref, computed, Ref } from 'vue'
 
-export default function useSortedPosts(posts) {
-  const selectedSort = ref('')
+interface Post {
+  [key: string]: string | number
+}
+
+export default function useSortedPosts(posts: Ref<Post[]>): {
+  selectedSort: Ref<string>
+  sortedPosts: Ref<Post[]>
+} {
+  const selectedSort = ref<string>('')
   const sortedPosts = computed(() => {
     return [...posts.value].sort((post1, post2) =>
-      post1[selectedSort.value]?.localeCompare(post2[selectedSort.value])
+      (post1[selectedSort.value] as string)?.localeCompare(
+        post2[selectedSort.value] as string
+      )
     )
   })
 

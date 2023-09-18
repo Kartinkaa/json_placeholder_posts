@@ -12,7 +12,7 @@
   </form>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'post-form',
@@ -21,6 +21,10 @@ export default defineComponent({
       post: {
         title: '',
         body: '',
+      } as {
+        title: string
+        body: string
+        id?: number
       },
     }
   },
