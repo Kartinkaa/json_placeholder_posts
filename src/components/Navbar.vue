@@ -2,10 +2,10 @@
   <div class="navbar">
     <div @click="$router.push('/')">Vue 3 App</div>
     <div class="navbar__btns">
-      <my-button @click="$router.push('/posts')">Posts</my-button>
-      <my-button style="margin-left: 20px" @click="$router.push('/about')"
+      <my-button style="margin-right: 20px" @click="$router.push('/about')"
         >About</my-button
       >
+      <my-button @click="$router.push('/posts')">Posts</my-button>
       <my-button style="margin-left: 20px" @click="$router.push('/store')"
         >Store</my-button
       >

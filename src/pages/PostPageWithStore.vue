@@ -74,10 +74,16 @@ export default {
       fetchPosts: 'post/fetchPosts',
     }),
     createPost(post) {
+      axios
+        .post('https://jsonplaceholder.typicode.com/posts', post)
+        .then((response) => console.log(response.data))
       this.posts.push(post)
       this.dialogVisible = false
     },
     removePost(post) {
+      fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+        method: 'DELETE',
+      })
       this.posts = this.posts.filter((p) => p.id !== post.id)
     },
     showDialog() {
